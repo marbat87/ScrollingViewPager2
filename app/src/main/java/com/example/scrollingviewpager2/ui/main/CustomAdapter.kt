@@ -30,7 +30,7 @@ class CustomAdapter// Constructor of the class
     // load data in each row element
     override fun onBindViewHolder(holder: ViewHolder, listPosition: Int) {
         val item = holder.item
-        item.setText(itemList!![listPosition].name)
+        item.text = itemList!![listPosition].name
     }
 
     // Static inner class to initialize the views of rows

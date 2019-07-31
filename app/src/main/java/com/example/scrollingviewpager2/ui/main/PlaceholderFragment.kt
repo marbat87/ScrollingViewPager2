@@ -42,9 +42,9 @@ class PlaceholderFragment : Fragment() {
 
         val itemArrayAdapter = CustomAdapter(R.layout.list_item, itemList)
         val recyclerView = root.findViewById(R.id.recycler) as RecyclerView
-        recyclerView.setLayoutManager(LinearLayoutManager(context))
-        recyclerView.setItemAnimator(DefaultItemAnimator())
-        recyclerView.setAdapter(itemArrayAdapter)
+        recyclerView.layoutManager = LinearLayoutManager(context)
+        recyclerView.itemAnimator = DefaultItemAnimator()
+        recyclerView.adapter = itemArrayAdapter
 
         // Populating list items
         for (i in 0..99) {
