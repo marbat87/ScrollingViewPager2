@@ -4,11 +4,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.recyclerview.widget.DefaultItemAnimator
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.scrollingviewpager2.Item
 import com.example.scrollingviewpager2.R
+
 
 /**
  * A placeholder fragment containing a simple view.
@@ -33,6 +36,21 @@ class PlaceholderFragment : Fragment() {
 //        pageViewModel.text.observe(this, Observer<String> {
 //            textView.text = it
 //        })
+
+        // Initializing list view with the custom adapter
+        val itemList = ArrayList<Item>()
+
+        val itemArrayAdapter = CustomAdapter(R.layout.list_item, itemList)
+        val recyclerView = root.findViewById(R.id.recycler) as RecyclerView
+        recyclerView.setLayoutManager(LinearLayoutManager(context))
+        recyclerView.setItemAnimator(DefaultItemAnimator())
+        recyclerView.setAdapter(itemArrayAdapter)
+
+        // Populating list items
+        for (i in 0..99) {
+            itemList.add(Item("Item $i"))
+        }
+
         return root
     }
 
